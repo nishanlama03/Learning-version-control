@@ -8,8 +8,10 @@ toppings.forEach((topping) => {
 
 
 const checkoutButton = document.querySelector(".button");
-let total = 0;
+
 checkoutButton.addEventListener("click", (e) => {
+  const ingredients = document.querySelectorAll(".order .topping");
+  let total = 0;
   ingredients.forEach((ingredient) => {
     total += Number(ingredient.dataset.price);
   });
@@ -17,5 +19,16 @@ checkoutButton.addEventListener("click", (e) => {
  });
 
 
-const ingredients = document.querySelectorAll(".order .topping");
 
+
+const NavButtons = document.querySelectorAll("#nav .topping");
+const orderDiv = document.querySelector(".order");
+
+NavButtons.forEach((navButton) => {
+  navButton.addEventListener("click", () => {
+     orderDiv.innerHTML +=
+
+    `<div class="topping ${navButton.dataset.ingredient}" data-ingredient=${navButton.dataset.ingredient} data-price=${navButton.dataset.price}>${navButton.dataset.ingredient}</div>`;
+   });
+ });
+    

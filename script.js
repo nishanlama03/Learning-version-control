@@ -1,8 +1,21 @@
 const toppings = document.querySelectorAll(".topping");
-
+const answerHolder = document.querySelector("#total");
 toppings.forEach((topping) => {
   topping.addEventListener("click", (e) => {
     console.log(topping.dataset);
   });
 });
+
+
+const checkoutButton = document.querySelector(".button");
+let total = 0;
+checkoutButton.addEventListener("click", (e) => {
+  ingredients.forEach((ingredient) => {
+    total += Number(ingredient.dataset.price);
+  });
+  answerHolder.innerHTML = `The total cost of your burger is ${total}`;
+ });
+
+
+const ingredients = document.querySelectorAll(".order .topping");
 
